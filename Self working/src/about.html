@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me | Jedidiah Ajisafe</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap"
+          rel="stylesheet">
     <style>
+        /* --- Base & Typography --- */
+        :root {
+            --gold: #C6A662;
+            --blood-red: #660000;
+            --text-grey: #a0a0a0;
+            --bg-dark: #0a0a0a;
+            --bg-black: #000;
+            --border-light: rgba(198, 166, 98, 0.3);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,44 +25,58 @@
         }
 
         body {
-            background: #000;
-            color: #a0a0a0;
+            background: var(--bg-black);
+            color: var(--text-grey);
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
             opacity: 0;
             animation: fadePageIn 1.5s ease forwards;
         }
 
-        @keyframes fadePageIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%),
+            url('https://www.transparenttextures.com/patterns/dark-matter.png');
+            background-attachment: fixed;
+            z-index: -1;
+            opacity: 0.5;
         }
 
-        header {
-            text-align: center;
-            padding: 60px 20px 40px;
-            background: linear-gradient(180deg, #111, #000);
-            border-bottom: 1px solid rgba(198,166,98,0.3);
-        }
-
-        header h1 {
+        h1, h2, h3 {
             font-family: 'Playfair Display', serif;
-            color: #C6A662;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            color: var(--gold);
             letter-spacing: 1px;
         }
 
+        /* --- Header --- */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(180deg, #111, var(--bg-black));
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
         header p {
-            color: #9a9a9a;
             font-size: 1rem;
         }
 
+        /* --- Timeline --- */
         .timeline {
             max-width: 800px;
             margin: 60px auto;
-            padding: 0 20px;
+            padding: 0 20px 80px;
             position: relative;
+            background: linear-gradient(to bottom, transparent, var(--bg-dark) 90%);
         }
 
         .timeline::before {
@@ -59,9 +84,9 @@
             position: absolute;
             left: 50%;
             top: 0;
-            width: 3px;
+            width: 2px;
             height: 100%;
-            background: linear-gradient(to bottom, crimson, #C6A662);
+            background: linear-gradient(to bottom, var(--blood-red), var(--gold));
             transform: translateX(-50%);
         }
 
@@ -69,7 +94,6 @@
             position: relative;
             width: 50%;
             padding: 20px 40px;
-            box-sizing: border-box;
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 1s ease forwards;
@@ -88,123 +112,351 @@
             content: "";
             position: absolute;
             top: 25px;
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
-            background: crimson;
-            border: 3px solid #C6A662;
+            background: var(--blood-red);
+            border: 2px solid var(--gold);
             z-index: 1;
         }
 
-        .timeline-item.left::before { right: -12px; }
-        .timeline-item.right::before { left: -12px; }
+        .timeline-item.left::before {
+            right: -10px;
+        }
+
+        .timeline-item.right::before {
+            left: -10px;
+        }
 
         .timeline-item h3 {
-            color: #C6A662;
-            font-family: 'Playfair Display', serif;
             font-size: 1.3rem;
         }
 
         .timeline-item p {
-            color: #a0a0a0;
             margin-top: 8px;
             font-size: 0.95rem;
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .timeline-item:nth-child(1) {
+            animation-delay: 0.3s;
         }
 
-        .timeline-item:nth-child(1) { animation-delay: 0.3s; }
-        .timeline-item:nth-child(2) { animation-delay: 0.6s; }
-        .timeline-item:nth-child(3) { animation-delay: 0.9s; }
-        .timeline-item:nth-child(4) { animation-delay: 1.2s; }
+        .timeline-item:nth-child(2) {
+            animation-delay: 0.6s;
+        }
 
-        .contact-section {
+        .timeline-item:nth-child(3) {
+            animation-delay: 0.9s;
+        }
+
+        .timeline-item:nth-child(4) {
+            animation-delay: 1.2s;
+        }
+
+        /* --- Projects Section --- */
+        .projects {
+            padding: 80px 50px;
             text-align: center;
-            margin-top: 80px;
-            padding: 60px 20px;
-            border-top: 1px solid rgba(198,166,98,0.3);
+            background: linear-gradient(to bottom, var(--bg-dark), var(--bg-dark), transparent);
         }
 
-        .contact-section h2 {
-            color: #C6A662;
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+        .projects-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .projects-header p {
+            font-size: 1.1rem;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            justify-items: center;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .project-card {
+            background: #111;
+            border: 1px solid rgba(198, 166, 98, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: left;
+            max-width: 400px;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            border-color 0.5s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+            border-color: var(--gold);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover img {
+            opacity: 1;
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            font-size: 0.95rem;
+            line-height: 1.6;
             margin-bottom: 20px;
         }
 
-        .contact-section p {
-            color: #a0a0a0;
-            font-size: 1rem;
+        .project-link {
+            color: var(--gold);
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #fff;
+        }
+
+        /* --- Contact Section --- */
+        .contact-section {
+            text-align: center;
+            padding: 80px 20px 0;
+            border-top: none;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+        }
+
+        .contact-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
         }
 
         .contact-section a {
             display: inline-block;
             margin-top: 25px;
-            padding: 12px 25px;
-            background: crimson;
-            color: white;
-            border-radius: 8px;
+            padding: 12px 30px;
+            background: var(--blood-red);
+            color: #fff;
+            border-radius: 5px;
+            border: 1px solid var(--blood-red);
             text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(255,0,0,0.3);
+            font-weight: 500;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            box-shadow 0.4s ease, background 0.3s ease, color 0.3s ease;
         }
 
         .contact-section a:hover {
-            background: #a00;
-            transform: scale(1.05);
-            box-shadow: 0 0 25px crimson;
+            background: transparent;
+            color: var(--blood-red);
+            transform: scale(1.03);
+            box-shadow: 0 0 20px rgba(102, 0, 0, 0.5);
         }
 
+        /* Shimmering Underline Effect */
+        .projects-header h2::after,
+        .contact-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            animation: expandLine 2s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        /* --- Footer --- */
         footer {
             text-align: center;
             color: #777;
             font-size: 0.9rem;
-            margin-top: 40px;
-            padding: 20px;
-            border-top: 1px solid rgba(198,166,98,0.2);
+            padding: 60px 20px 30px;
+            border-top: none;
+            background: transparent;
+        }
+
+        footer a {
+            color: #888;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        footer a:hover {
+            color: var(--gold);
+        }
+
+        /* --- Scroll-to-Top Button --- */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(198, 166, 98, 0.1);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-to-top:hover {
+            background: var(--gold);
+            color: var(--bg-dark);
+        }
+
+        /* --- Keyframe Animations --- */
+        @keyframes fadePageIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes expandLine {
+            to {
+                width: 80%;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>About Me</h1>
-        <p>A journey through education and growth</p>
-    </header>
 
-    <section class="timeline">
-        <div class="timeline-item left">
-            <h3>Foursquare Academy</h3>
-            <p>Nursery and Pre-primary Education</p>
+<header>
+    <h1>About Me</h1>
+    <p>A journey through education and growth</p>
+</header>
+
+<section class="timeline">
+    <div class="timeline-item left">
+        <h3>Foursquare Academy</h3>
+        <p>Nursery and Pre-primary Education</p>
+    </div>
+    <div class="timeline-item right">
+        <h3>ECWA Plateau Christian Academy</h3>
+        <p>Primary 1 – 5 | Graduated in 2016</p>
+    </div>
+    <div class="timeline-item left">
+        <h3>Baptist High School, Jos</h3>
+        <p>Completed Secondary Education | 2016 – 2022</p>
+    </div>
+    <div class="timeline-item right">
+        <h3>Covenant University</h3>
+        <p>Bachelor’s Degree Program | 2022 – Present</p>
+    </div>
+</section>
+
+<section class="projects">
+    <div class="projects-header">
+        <h2>Projects & Creations</h2>
+        <p>Every project tells a story — a blend of code, design, and vision.</p>
+    </div>
+    <div class="project-grid">
+        <div class="project-card">
+            <img src="ToDoApp.png" alt="1st Project Snapshot">
+            <div class="project-info">
+                <h3>ToDo App</h3>
+                <p>A peak to give the best project management with refined elegance.</p>
+                <a href="https://github.com/Emerald-dee" class="project-link">View Code →</a>
+            </div>
         </div>
-
-        <div class="timeline-item right">
-            <h3>ECWA Plateau Christian Academy</h3>
-            <p>Primary 1 – 5 | Graduated in 2016</p>
+        <div class="project-card">
+            <img src="book-cover.jpg" alt="2nd Project Snapshot">
+            <div class="project-info">
+                <h3>Two Sides of Eternity</h3>
+                <p>A book of challenge to conventional thinking, fit with its own world. Read it if you dare.</p>
+                <a href="book.html" class="project-link">Find Out More →</a>
+            </div>
         </div>
-
-        <div class="timeline-item left">
-            <h3>Baptist High School, Jos</h3>
-            <p>Completed Secondary Education | 2016 – 2022</p>
+        <div class="project-card">
+            <img src="project3.jpg" alt="3rd project Snapshot">
+            <div class="project-info">
+                <h3>Fully Interactive UI/UX Redesign</h3>
+                <p>An implementation of newly learned skills to bring a generic design language to life.</p>
+                <a href="https://github.com/Emerald-dee" class="project-link">View Code →</a>
+            </div>
         </div>
-
-        <div class="timeline-item right">
-            <h3>Covenant University</h3>
-            <p>Bachelor’s Degree Program | 2022 – Present</p>
+        <div class="project-card">
+            <img src="project4.jpg" alt="4th project Snapshot">
+            <div class="project-info">
+                <h3>Story Media Platform UI/UX</h3>
+                <p>A conceptual redesign of a popular story-sharing platform with a focus on user experience.</p>
+                <a href="https://github.com/Emerald-dee" class="project-link">View Code →</a>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="contact-section">
-        <h2>Timeline</h2>
-        <p>Have a peak into what I am working on.</p>
-        <a href="blog.html">BLOG</a>
-    </section>
+<section class="contact-section">
+    <h2>Get In Touch</h2>
+    <p>Have a peak into what I am working on.</p>
+    <a href="blog.html">BLOG</a>
+</section>
 
-    <footer>
-        &copy; 2025 Jedidiah Ajisafe — All Rights Reserved.
-    </footer>
+<footer>
+    &copy; 2025 Jedidiah Ajisafe — All Rights Reserved.
+    <a href="personal portfoilo.html" style="color: var(--blood-red);">Home</a>
+    <a href="#" class="scroll-to-top" aria-label="Scroll to top">↑</a>
+</footer>
+
+<script>
+    const scrollTopBtn = document.querySelector('.scroll-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+</script>
+
 </body>
 </html>

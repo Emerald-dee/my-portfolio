@@ -1,517 +1,704 @@
 <!DOCTYPE html>
-<!--suppress CssUnusedSymbol -->
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Jedidiah Ajisafe — Portfolio</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Jedidiah Ajisafe — Portfolio</title>
 
-  <!-- Fonts & icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fonts & icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <style>
-    :root{
-      --crimson: #8B0000;
-      --gold: #C6A662;
-      --black: #000000;
-      --text: #9a9a9a;   /* graphite text */
-      --muted: rgba(198,166,98,0.12);
-      --glass: rgba(255,255,255,0.03);
-      --easing: cubic-bezier(.22,.9,.3,1);
-    }
+    <style>
+        :root {
+            --crimson: #8B0000;
+            --gold: #C6A662;
+            --black: #000000;
+            --text: #9a9a9a; /* graphite text */
+            --muted: rgba(198, 166, 98, 0.12);
+            --glass: rgba(255, 255, 255, 0.03);
+            --easing: cubic-bezier(.22, .9, .3, 1);
+        }
 
-    /* RESET */
-    *{box-sizing:border-box;margin:0;padding:0;}
-    html,body{height:100%}
-    body{
-      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg, #030303 0%, #080202 55%, #0d0202 100%);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      overflow-x:hidden;
-      line-height:1.55;
-    }
+        /* RESET */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    /* PAGE CONTAINER */
-    .container{
-      max-width:1150px;
-      margin:0 auto;
-      padding:36px 22px 80px;
-    }
+        html, body {
+            height: 100%;
+        }
 
-    /* HEADER / HERO */
-    header{
-      position:relative;
-      padding:56px 0 36px;
-      text-align:center;
-      overflow:visible;
-      will-change:transform;
-      --hero-offset:0px;
-    }
+        body {
+            font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(180deg, #030303 0%, #080202 55%, #0d0202 100%);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            line-height: 1.55;
+        }
 
-    .hero-inner{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:36px;
-      flex-wrap:wrap;
-    }
+        /* PAGE CONTAINER */
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 36px 22px 80px;
+        }
 
-    .intro {
-      max-width:620px;
-      text-align:center;
-    }
+        /* HEADER / HERO */
+        header {
+            position: relative;
+            padding: 56px 0 36px;
+            text-align: center;
+            overflow: visible;
+            will-change: transform;
+        }
 
-    .eyebrow{
-      display:inline-block;
-      color:var(--text);
-      border:1px solid var(--muted);
-      padding:6px 12px;
-      border-radius:999px;
-      font-size:0.85rem;
-      letter-spacing:1px;
-      margin-bottom:18px;
-      background:linear-gradient(180deg, rgba(198,166,98,0.02), transparent);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4) inset;
-    }
+        .hero-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 36px;
+            flex-wrap: wrap;
+        }
 
- h1 {
-  font-family: "Playfair Display", serif;
-  font-weight: 600;
-  font-size: 2.6rem;
-  line-height: 1.02;
-  margin-bottom: 8px;
-  letter-spacing: 1px;
-  color: var(--crimson); /* fallback */
-  background: linear-gradient(90deg, var(--crimson), var(--gold));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+        .enter-world-tome {
+            cursor: pointer;
+            width: 70px;
+            height: auto;
+            display: block;
+            margin: 20px 0 0 5px;
+            position: relative;
+            filter: brightness(1.05) contrast(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7),
+            0 5px 15px rgba(198, 166, 98, 0.15),
+            inset 0 1px 3px rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            transform: translateY(0);
+            animation: breathingTome 4.5s infinite ease-in-out;
+            transition: transform 500ms var(--easing), box-shadow 500ms var(--easing), filter 500ms var(--easing);
+        }
 
+        .enter-world-tome:hover {
+            transform: translateY(-8px) scale(1.05);
+            filter: brightness(1.15) contrast(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6),
+            0 10px 30px rgba(198, 166, 98, 0.25);
+            animation-play-state: paused;
+        }
 
-    p.lead{
-      margin-top:6px;
-      color:var(--text);
-      font-size:1.02rem;
-      max-width:610px;
-      margin-left:auto;margin-right:auto;
-      opacity:0.95;
-    }
+        @keyframes breathingTome {
+            0%, 100% {
+                transform: translateY(0);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7),
+                0 5px 15px rgba(198, 166, 98, 0.15),
+                inset 0 1px 3px rgba(255, 255, 255, 0.03);
+            }
+            50% {
+                transform: translateY(-4px);
+                box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7),
+                0 7px 20px rgba(198, 166, 98, 0.2),
+                inset 0 1px 3px rgba(255, 255, 255, 0.03);
+            }
+        }
 
-    /* profile: framed rectangular portrait */
-    .profile-frame{
-      width:260px;
-      height:340px;
-      border-radius:12px;
-      overflow:hidden;
-      background:linear-gradient(180deg,#0b0b0b 0%, #150504 100%);
-      border:2px solid rgba(198,166,98,0.16);
-      box-shadow:
-        0 4px 30px rgba(0,0,0,0.6),
-        0 0 24px rgba(139,0,0,0.06) inset;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      transform:translateY(0);
-      transition:transform 700ms var(--easing), box-shadow 700ms var(--easing);
-      will-change:transform,box-shadow;
-    }
+        .enter-world-tome.swallow-screen {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            z-index: 3000;
+            animation: expandAndSwallow 1.5s forwards ease-in-out;
+        }
 
-    .profile-frame img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      transform:scale(1);
-      transition: transform 900ms var(--easing), filter 500ms var(--easing);
-      filter:contrast(1.02) saturate(0.95);
-    }
+        @keyframes expandAndSwallow {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(50);
+                opacity: 0;
+            }
+        }
 
-    .profile-frame::after{
-      content:'';
-      position:absolute;
-      pointer-events:none;
-      width:100%;
-      height:24%;
-      bottom:0;
-      left:0;
-      background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 100%);
-    }
+        .intro {
+            max-width: 620px;
+            text-align: center;
+        }
 
-    .profile-frame:hover{
-      transform:translateY(-6px) scale(1.01);
-      box-shadow: 0 18px 60px rgba(0,0,0,0.7), 0 0 45px rgba(139,0,0,0.08);
-    }
+        .eyebrow {
+            display: inline-block;
+            color: var(--text);
+            border: 1px solid var(--muted);
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+            background: linear-gradient(180deg, rgba(198, 166, 98, 0.02), transparent);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) inset;
+        }
 
-    .profile-frame:hover img{ transform:scale(1.03); filter:brightness(1.02); }
+        h1 {
+            font-family: "Playfair Display", serif;
+            font-weight: 600;
+            font-size: 2.6rem;
+            line-height: 1.02;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            color: var(--crimson);
+            background: linear-gradient(90deg, var(--crimson), var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    /* NAV */
-    nav{
-      margin:28px auto 0;
-      display:flex;
-      gap:18px;
-      justify-content:center;
-      align-items:center;
-      background: rgba(10,10,10,0.55);
-      padding:10px 18px;
-      border-radius:999px;
-      border:1px solid rgba(198,166,98,0.08);
-      backdrop-filter: blur(6px);
-      box-shadow:0 6px 30px rgba(0,0,0,0.5);
-      width:fit-content;
-    }
+        p.lead {
+            margin-top: 6px;
+            color: var(--text);
+            font-size: 1.02rem;
+            max-width: 610px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
 
-    nav a{
-      color:var(--gold);
-      text-decoration:none;
-      font-weight:600;
-      letter-spacing:1px;
-      padding:8px 14px;
-      border-radius:999px;
-      transition: all 280ms var(--easing);
-      text-transform:uppercase;
-      font-size:0.85rem;
-    }
+        /* profile: framed rectangular portrait */
+        .profile-frame {
+            width: 260px;
+            height: 340px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: linear-gradient(180deg, #0b0b0b 0%, #150504 100%);
+            border: 2px solid rgba(198, 166, 98, 0.16);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6),
+            0 0 24px rgba(139, 0, 0, 0.06) inset;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(0);
+            transition: transform 700ms var(--easing), box-shadow 700ms var(--easing);
+            will-change: transform, box-shadow;
+        }
 
-    nav a:hover{
-      background: linear-gradient(90deg, rgba(139,0,0,0.14), rgba(198,166,98,0.08));
-      color:var(--text);
-      transform:translateY(-3px);
-      box-shadow:0 6px 18px rgba(0,0,0,0.45);
-    }
+        .profile-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transform: scale(1);
+            transition: transform 900ms var(--easing), filter 500ms var(--easing);
+            filter: contrast(1.02) saturate(0.95);
+        }
 
-    /* SECTION (cards grid) */
-    .section{
-      margin-top:40px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
-      border-radius:14px;
-      padding:34px;
-      border:1px solid rgba(198,166,98,0.06);
-      box-shadow: 0 10px 50px rgba(0,0,0,0.6);
-      opacity:0;
-      transform:translateY(18px);
-      transition: opacity 600ms var(--easing), transform 600ms var(--easing);
-    }
+        .profile-frame::after {
+            content: '';
+            position: absolute;
+            pointer-events: none;
+            width: 100%;
+            height: 24%;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
+        }
 
-    .section.in-view{ opacity:1; transform:translateY(0); }
+        .profile-frame:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 18px 60px rgba(0, 0, 0, 0.7), 0 0 45px rgba(139, 0, 0, 0.08);
+        }
 
-    .section h2{
-      font-family:"Playfair Display", serif;
-      color:var(--gold);
-      margin-bottom:18px;
-      font-size:1.6rem;
-      letter-spacing:1px;
-    }
+        .profile-frame:hover img {
+            transform: scale(1.03);
+            filter: brightness(1.02);
+        }
 
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-      gap:20px;
-    }
+        /* NAV */
+        nav {
+            margin: 28px auto 0;
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.55);
+            padding: 10px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(198, 166, 98, 0.08);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.5);
+            width: fit-content;
+        }
 
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
-      border-radius:12px;
-      padding:20px;
-      height:100%;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      border:1px solid rgba(198,166,98,0.06);
-      transition: transform 420ms var(--easing), box-shadow 420ms var(--easing);
-    }
+        nav a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            transition: all 280ms var(--easing);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
 
-    .card:hover{
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 40px rgba(198,166,98,0.04);
-    }
+        nav a:hover {
+            background: linear-gradient(90deg, rgba(139, 0, 0, 0.14), rgba(198, 166, 98, 0.08));
+            color: var(--text);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+        }
 
-    .card h3{
-      font-family:"Playfair Display", serif;
-      color:var(--gold);
-      margin-bottom:10px;
-      font-size:1.15rem;
-    }
+        .section {
+            margin-top: 40px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.00));
+            border-radius: 14px;
+            padding: 34px;
+            border: 1px solid rgba(198, 166, 98, 0.06);
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 600ms var(--easing), transform 600ms var(--easing);
+        }
 
-    .card p{ color:var(--text); font-size:0.98rem; }
+        .section.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-    /* book card specifics */
-    .book-cover{
-      width:100%;
-      height:360px;
-      object-fit:cover;
-      border-radius:8px;
-      border:2px solid rgba(198,166,98,0.14);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-      display:block;
-      margin-bottom:14px;
-      background:#0b0b0b center/cover no-repeat;
-    }
+        .section h2 {
+            font-family: "Playfair Display", serif;
+            color: var(--gold);
+            margin-bottom: 18px;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+        }
 
-    /* buttons */
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 18px;
-      background: linear-gradient(90deg, var(--crimson), rgba(198,166,98,0.12));
-      color: #f7f5f2;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:600;
-      letter-spacing:1px;
-      box-shadow:0 6px 20px rgba(0,0,0,0.55);
-      border:1px solid rgba(198,166,98,0.12);
-      transition: transform 300ms var(--easing), box-shadow 300ms var(--easing);
-    }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
 
-    .btn:hover{ transform:translateY(-4px); box-shadow:0 20px 40px rgba(0,0,0,0.7), 0 0 30px rgba(198,166,98,0.05); }
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.00));
+            border-radius: 12px;
+            padding: 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid rgba(198, 166, 98, 0.06);
+            transition: transform 420ms var(--easing), box-shadow 420ms var(--easing);
+        }
 
-    /* youtube link (red emphasis) */
-    .youtube-pill{
-      display:inline-flex;
-      gap:10px;
-      align-items:center;
-      padding:8px 12px;
-      background:linear-gradient(90deg,#a00,#c00);
-      color:#fff;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:700;
-      box-shadow:0 8px 30px rgba(170,0,0,0.18);
-      border:1px solid rgba(0,0,0,0.25);
-      transition: transform 300ms var(--easing), box-shadow 300ms var(--easing);
-    }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 40px rgba(198, 166, 98, 0.04);
+        }
 
-    .youtube-pill:hover{ transform:translateY(-4px); box-shadow:0 20px 60px rgba(200,0,0,0.28); }
+        .card h3 {
+            font-family: "Playfair Display", serif;
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+        }
 
-    /* tech tags */
-    .tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
-    .tag{
-      background: linear-gradient(180deg, rgba(139,0,0,0.12), rgba(0,0,0,0.02));
-      color:var(--text);
-      padding:8px 14px;
-      border-radius:999px;
-      border:1px solid rgba(198,166,98,0.06);
-      font-weight:600;
-      font-size:0.9rem;
-    }
+        .card p {
+            color: var(--text);
+            font-size: 0.98rem;
+        }
 
-    /* footer */
-    footer{
-      margin-top:40px;
-      text-align:center;
-      color:rgba(255,255,255,0.55);
-      font-size:0.95rem;
-      padding:30px 0 90px;
-    }
+        /* book card specifics */
+        .book-cover {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid rgba(198, 166, 98, 0.14);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+            display: block;
+            margin-bottom: 14px;
+            background: #0b0b0b center/cover no-repeat;
+        }
 
-    /* responsive tweaks */
-    @media (max-width:980px){
-      .hero-inner{ gap:18px; padding:0 10px; }
-      .profile-frame{ width:220px;height:300px; }
-    }
-    @media (max-width:600px){
-      h1{ font-size:1.9rem; }
-      .book-cover{height:260px}
-    }
-  </style>
+        /* buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            background: linear-gradient(90deg, var(--crimson), rgba(198, 166, 98, 0.12));
+            color: #f7f5f2;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
+            border: 1px solid rgba(198, 166, 98, 0.12);
+            transition: transform 300ms var(--easing), box-shadow 300ms var(--easing);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(198, 166, 98, 0.05);
+        }
+
+        /* youtube link (red emphasis) */
+        .youtube-pill {
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+            padding: 8px 12px;
+            background: linear-gradient(90deg, #a00, #c00);
+            color: #fff;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 8px 30px rgba(170, 0, 0, 0.18);
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            transition: transform 300ms var(--easing), box-shadow 300ms var(--easing);
+        }
+
+        .youtube-pill:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(200, 0, 0, 0.28);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            background: linear-gradient(180deg, rgba(139, 0, 0, 0.12), rgba(0, 0, 0, 0.02));
+            color: var(--text);
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(198, 166, 98, 0.06);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* NEW STYLES FOR THE BOOK ICON BUTTON */
+        .enter-world-icon {
+            cursor: pointer;
+            width: 80px;
+            height: auto;
+            display: block;
+            margin-top: 18px;
+            filter: drop-shadow(0 0 15px rgba(198, 166, 98, 0.3));
+            animation: faintPulse 4s infinite ease-in-out;
+            transition: transform 0.4s var(--easing), filter 0.4s var(--easing);
+            transform-origin: center;
+        }
+
+        .enter-world-icon:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 25px rgba(198, 166, 98, 0.5));
+            animation-play-state: paused;
+        }
+
+        @keyframes faintPulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+            50% {
+                transform: scale(1.03);
+                opacity: 1;
+            }
+        }
+
+        /* footer */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 0.95rem;
+            padding: 30px 0 90px;
+        }
+
+        @media (max-width: 980px) {
+            .hero-inner {
+                gap: 18px;
+                padding: 0 10px;
+            }
+
+            .profile-frame {
+                width: 220px;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            .book-cover {
+                height: 260px
+            }
+        }
+
+    </style>
 </head>
 <body>
-  <div class="container">
+<div class="container">
 
     <header id="hero">
-      <div class="hero-inner">
-        <div class="intro">
-          <div class="eyebrow">Jedidiah Ajisafe Toluwabori</div>
-          <h1>Purpose. Discipline. Legacy.</h1>
-          <p class="lead">Developer • Writer • Creative Technologist — I build elegant systems and stories that hold their weight. Subtle by design, precise by intent.</p>
-          <nav aria-label="Primary">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#writing">Writing</a>
-            <a href="#contact">Contact</a>
-          </nav>
-        </div>
+        <div class="hero-inner">
+            <div class="intro">
+                <div class="eyebrow">Jedidiah Ajisafe Toluwabori</div>
+                <h1>Purpose. Discipline. Legacy.</h1>
+                <p class="lead">Developer • Writer • Creative Technologist — I build elegant systems and stories that
+                    hold their weight. Subtle by design, precise by intent.</p>
+                <nav aria-label="Primary">
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#writing">Writing</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
 
-        <div class="profile-frame" aria-hidden="false">
-          <img src="my profile.jpg" alt="Jedidiah Ajisafe portrait">
+            <div class="profile-frame" aria-hidden="false">
+                <img src="my%20profile.jpg" alt="Jedidiah Ajisafe portrait">
+            </div>
         </div>
-      </div>
     </header>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <h2>About Me</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Who I am</h3>
-          <p>I build, write, and design with precision. My work blends logic and artistry — code that breathes, words that move, and design that commands respect without noise. Power in silence; excellence in execution.</p>
-          <a class="btn" href="about.html">More Information</a>
-        </div>
+    <main>
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Who I am</h3>
+                    <p>I build, write, and design with precision. My work blends logic and artistry — code that
+                        breathes,
+                        words that move, and design that breathes admiration; excellence in execution.</p>
+                    <a class="btn" href="about.html">More Information</a>
+                </div>
 
-        <div class="card">
-          <h3>Signature</h3>
-          <p>Precision is not an act — it’s instinct.</p>
-          <p>Design is not appearance — it’s conviction shaped in silence.</p>
-          <p>Every line, every choice, every color — deliberate.</p>
-          <div style="margin-top:12px;">
-            <span class="tag">Brand: Purpose. Discipline. Legacy</span>
-          </div>
-        </div>
-      </div>
-    </section>
+                <div class="card">
+                    <h3>Signature</h3>
+                    <p>Precision is not an act — it’s instinct.</p>
+                    <p>Design is not appearance — it’s conviction shaped in silence.</p>
+                    <p>Every line, every choice, every color — deliberate.</p>
+                    <div style="margin-top:12px;">
+                        <span class="tag">Brand: Purpose. Discipline. Legacy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="section">
-      <h2>Technical Skills</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Mobile Development</h3>
-          <p>Kotlin & Java — robust Android architectures, clean separation of concerns, modern UX patterns.</p>
-          <a class="btn" href="https://github.com/Emerald-dee" target="_blank" rel="noopener">View GitHub</a>
-        </div>
+        <!-- SKILLS -->
+        <section id="skills" class="section">
+            <h2>Technical Skills</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Mobile Development</h3>
+                    <p>Kotlin & Java — robust Android architectures, clean separation of concerns, modern UX
+                        patterns.</p>
+                    <a class="btn" href="https://github.com/Emerald-dee" target="_blank" rel="noopener">View GitHub</a>
+                </div>
 
-        <div class="card">
-          <h3>Web Development</h3>
-          <p>Enterprise & frontend: C#, .NET, modern JS, progressive and accessible interfaces with design-first thinking.</p>
-          <a class="btn" href="https://github.com/Emerald-dee" target="_blank" rel="noopener">View GitHub</a>
-        </div>
+                <div class="card">
+                    <h3>Web Development</h3>
+                    <p>Enterprise & frontend: C#, .NET, modern JS, progressive and accessible interfaces with
+                        design-first
+                        thinking.</p>
+                    <a class="btn" href="https://github.com/Emerald-dee" target="_blank" rel="noopener">View GitHub</a>
+                </div>
 
-        <div class="card">
-          <h3>Animation & UI</h3>
-          <p>Motion design, UI micro-interactions, animation for narrative — refined, purposeful, cinematic.</p>
-          <div style="margin-top:14px; display:flex; gap:12px; align-items:center;">
-            <a class="youtube-pill" href="https://www.youtube.com/@EmeraldDee" target="_blank" rel="noopener">
-              <i class="fab fa-youtube"></i> Channel
-            </a>
-            <span style="color:var(--text); font-size:0.95rem;">Explore motion reels & process videos</span>
-          </div>
-        </div>
-      </div>
+                <div class="card">
+                    <h3>Animation & UI</h3>
+                    <p>Motion design, UI micro-interactions, animation for narrative — refined, purposeful,
+                        cinematic.</p>
+                    <div style="margin-top:14px; display:flex; gap:12px; align-items:center;">
+                        <a class="youtube-pill" href="https://www.youtube.com/@EmeraldDee" target="_blank"
+                           rel="noopener">
+                            <i class="fab fa-youtube"></i> Channel
+                        </a>
+                        <span style="color:var(--text); font-size:0.95rem;">Explore motion reels & process videos</span>
+                    </div>
+                </div>
+            </div>
 
-      <h3 style="margin-top:28px; color:var(--gold);">Technologies</h3>
-      <div class="tags" role="list">
-        <span class="tag">Kotlin</span>
-        <span class="tag">Java</span>
-        <span class="tag">C#</span>
-        <span class="tag">.NET</span>
-        <span class="tag">ASP.NET MVC</span>
-        <span class="tag">Animations</span>
-        <span class="tag">Android</span>
-        <span class="tag">HTML</span>
-        <span class="tag">Javascript</span>
-        <span class="tag">CSS</span>
-      </div>
-    </section>
+            <h3 style="margin-top:28px; color:var(--gold);">Technologies</h3>
+            <div class="tags" role="list">
+                <span class="tag">Kotlin</span>
+                <span class="tag">Java</span>
+                <span class="tag">C#</span>
+                <span class="tag">.NET</span>
+                <span class="tag">ASP.NET MVC</span>
+                <span class="tag">Animations</span>
+                <span class="tag">Android</span>
+                <span class="tag">HTML</span>
+                <span class="tag">Javascript</span>
+                <span class="tag">CSS</span>
+            </div>
+        </section>
 
-    <!-- WRITING / BOOK -->
-    <section id="writing" class="section">
-      <h2>Creative Writing</h2>
-      <div class="grid">
-        <div class="card">
-          <img class="book-cover" src="book-cover.jpg" alt="Two Sides of Eternity — book cover">
-          <h3>Two Sides of Eternity</h3>
-          <p>Dark fantasy exploring grief, forbidden hope, and the cost of power. A morally grey narrative that lingers.</p>
-          <a class="btn" href="https://www.wattpad.com/story/228358894-two-sides-of-eternity" target="_blank" rel="noopener">Read on Wattpad</a>
-        </div>
-        <div class="card">
-          <h3>Excerpts & About</h3>
-          <p>Sigurd lost everything the day the cursed shell was unearthed. His wife Alicia lies in an endless sleep, his daughter Linnea was claimed by a word the world itself could not hold, and his spirit teeters on the edge of breaking.</p>
+        <!-- WRITING / BOOK -->
+        <section id="writing" class="section">
+            <h2>Creative Writing</h2>
+            <div class="grid">
+                <div class="card">
+                    <img class="book-cover" src="book-cover.jpg" alt="Two Sides of Eternity — book cover">
+                    <h3>Two Sides of Eternity</h3>
+                    <p>Dark fantasy exploring grief, forbidden hope, and the cost of power. A morally grey narrative
+                        that
+                        lingers.</p>
+                    <a class="btn" href="https://www.wattpad.com/story/228358894-two-sides-of-eternity" target="_blank"
+                       rel="noopener">Read on Wattpad</a>
+                </div>
+                <div class="card">
+                    <h3>Excerpts & About</h3>
+                    <p>Sigurd lost everything the day the cursed shell was found. His wife Alicia lies in an endless
+                        sleep,
+                        his daughter Linnea was claimed by a word the world itself could not hold, and his spirit
+                        teeters on
+                        the edge of breaking.</p>
 
-          <p>But in the Silver Plains, where eternal mist coils and shadows whisper, the truth of that day waits to be uncovered. The shell is not merely a relic-it is a key, a prison, a question the world itself cannot answer.</p>
+                    <p>But in the Silver Plains, where eternal mist coils and shadows whisper, the truth of that day
+                        waits
+                        to be uncovered. The shell is not merely a relic-it is a key, a prison, a question the world
+                        itself
+                        cannot answer.</p>
 
-          <p>From Seraphine, the fallen angel with a crimson halo, to Darcey, bound by vows older than kingdoms, to Roland, Kaelen, and the kings who shape nations-every figure holds a fragment of truth. Yet every revelation only deepens the most dangerous mystery:</p>
+                    <p>From Seraphine, the fallen angel with a crimson halo, to Darcey, bound by vows older than
+                        kingdoms,
+                        to Roland, Kaelen, and the kings who shape nations-every figure holds a fragment of truth. Yet
+                        every
+                        revelation only deepens the most dangerous mystery:</p>
 
-          <p>Who is the real villain-the fallen, the faithful, or the broken?</p>
-          <div style="margin-top:18px;">
-            <a class="btn" href="book.html#">View Excerpts</a>
-          </div>
-        </div>
-      </div>
-    </section>
+                    <p>Who is the real villain-the fallen, the faithful, or the broken?</p>
+                    <div style="margin-top:18px;" class="enter-world-icon">
+                        <img src="book.png" alt="Enter the World of the Book" class="enter-world-tome"
+                             data-href="book.html">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <h2>Get In Touch</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Professional Enquiries</h3>
-          <p style="margin-bottom:12px;">If your project needs discipline, refinement, and quality — reach out.</p>
-          <a class="btn" href="mailto:jetajisafe57@gmail.com">Email Me</a>
-        </div>
+        <!-- CONTACT -->
+        <section id="contact" class="section">
+            <h2>Get In Touch</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Professional Enquiries</h3>
+                    <p style="margin-bottom:12px;">If your project needs discipline, refinement, and quality — reach
+                        out.</p>
+                    <a class="btn" href="mailto:jetajisafe57@gmail.com">Email Me</a>
+                </div>
 
-        <div class="card">
-          <h3>Connect</h3>
-          <p style="margin-bottom:12px;">LinkedIn & other professional platforms for conversations and opportunities.</p>
-          <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i>&nbsp;LinkedIn</a>
-        </div>
-      </div>
-    </section>
-
+                <div class="card">
+                    <h3>Connect</h3>
+                    <p style="margin-bottom:12px;">LinkedIn & other professional platforms for conversations and
+                        opportunities.</p>
+                    <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener"><i
+                            class="fab fa-linkedin"></i>&nbsp;LinkedIn</a>
+                </div>
+            </div>
+        </section>
+    </main>
     <footer>
-      <small>&copy; 2025 Jedidiah Ajisafe — Crafted with precision and intent.</small>
+        <small>&copy; 2025 Jedidiah Ajisafe — Crafted with precision and intent.</small>
     </footer>
-  </div>
+</div>
 
-  <script>
-    /* Subtle parallax header and slow light movement + reveal on scroll.
-       Purposeful, low motion — not flashy.
-    */
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Hero parallax scroll effect
+        const hero = document.getElementById('hero');
+        if (hero) {
+            const onScroll = () => {
+                const sc = window.scrollY;
+                const offset = Math.min(60, sc * 0.08);
+                hero.style.transform = `translateY(${offset}px)`;
+            };
+            window.addEventListener('scroll', onScroll, {passive: true});
+            onScroll(); // Initial call
+        }
 
-    // header parallax (slow transform based on scroll)
-    (function(){
-      const hero = document.getElementById('hero');
-      let lastScroll = 0;
-      function onScroll(){
-        const sc = window.scrollY;
-        // small upward parallax for hero
-        const offset = Math.min(60, sc * 0.08);
-        hero.style.transform = `translateY(${offset}px)`;
-        lastScroll = sc;
-      }
-      window.addEventListener('scroll', onScroll, {passive:true});
-      onScroll();
-    })();
+        // Section intersection observer for fade-in effect
+        const sections = document.querySelectorAll('.section');
+        if (sections.length) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, {threshold: 0.12});
+            sections.forEach(s => io.observe(s));
+        }
 
-    // reveal sections on scroll
-    (function(){
-      const sections = document.querySelectorAll('.section');
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting){
-            entry.target.classList.add('in-view');
-          }
-        });
-      }, {threshold: 0.12});
-      sections.forEach(s => io.observe(s));
-    })();
+        // Profile frame mouse move effect
+        const pf = document.querySelector('.profile-frame');
+        if (pf && window.innerWidth > 720) {
+            const onMove = (e) => {
+                const rect = pf.getBoundingClientRect();
+                const cx = rect.left + rect.width / 2;
+                const cy = rect.top + rect.height / 2;
+                const dx = (e.clientX - cx) / rect.width;
+                const dy = (e.clientY - cy) / rect.height;
+                pf.style.transform = `translateY(${-6 - dy * 6}px) rotateX(${dy * 3}deg) rotateY(${dx * 6}deg) scale(1.01)`;
+            };
+            const reset = () => {
+                pf.style.transform = '';
+            };
+            pf.addEventListener('mousemove', onMove);
+            pf.addEventListener('mouseleave', reset);
+        }
 
-    // subtle tilt effect when moving cursor over profile frame (desktop only)
-    (function(){
-      const pf = document.querySelector('.profile-frame');
-      if(!pf) return;
-      let rect;
-      function onMove(e){
-        rect = pf.getBoundingClientRect();
-        const cx = rect.left + rect.width/2;
-        const cy = rect.top + rect.height/2;
-        const dx = (e.clientX - cx) / rect.width;
-        const dy = (e.clientY - cy) / rect.height;
-        pf.style.transform = `translateY(${ -6 - dy*6 }px) rotateX(${dy*3}deg) rotateY(${dx*6}deg) scale(1.01)`;
-      }
-      function reset(){
-        pf.style.transform = '';
-      }
-      // enable only for wider screens
-      if(window.innerWidth > 720){
-        pf.addEventListener('mousemove', onMove);
-        pf.addEventListener('mouseleave', reset);
-      }
-    })();
-  </script>
+        // Book icon click animation and navigation
+        const enterWorldTome = document.querySelector('.enter-world-tome');
+        if (enterWorldTome) {
+            enterWorldTome.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = enterWorldTome.dataset.href;
+                if (!href) return;
+
+                const rect = enterWorldTome.getBoundingClientRect();
+                const top = rect.top + (rect.height / 2);
+                const left = rect.left + (rect.width / 2);
+
+                const animatedTome = enterWorldTome.cloneNode(true);
+                animatedTome.style.position = 'fixed';
+                animatedTome.style.top = `${top}px`;
+                animatedTome.style.left = `${left}px`;
+                animatedTome.style.margin = '0';
+                animatedTome.style.transform = 'translate(-50%, -50%)';
+
+                document.body.appendChild(animatedTome);
+                enterWorldTome.style.opacity = '0';
+                animatedTome.classList.add('swallow-screen');
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 1500);
+            });
+        }
+    });
+    window.addEventListener('pageshow', function(event) {
+        // The 'persisted' property is true if the page is loaded from the bfcache.
+        if (event.persisted) {
+            const enterWorldTome = document.querySelector('.enter-world-tome');
+            if (enterWorldTome) {
+                // 1. Restore the opacity of the original button.
+                enterWorldTome.style.opacity = '1';
+            }
+            const animatedClone = document.querySelector('.swallow-screen');
+            if (animatedClone) {
+                animatedClone.remove();
+            }
+        }
+    });
+</script>
 </body>
 </html>
