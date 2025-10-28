@@ -4,6 +4,14 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <title>Jedidiah Ajisafe — Portfolio</title>
+    <script>
+    // This script checks if the page was accessed via a refresh.
+    // If so, it redirects back to the loading screen (index.html).
+    const navigationEntries = performance.getEntriesByType("navigation");
+    if (navigationEntries.length > 0 && navigationEntries[0].type === 'reload') {
+        window.location.href = 'index.html';
+    }
+</script>
 
     <!-- Preload critical images -->
     <link rel="preload" href="my%20profile.jpg" as="image">
